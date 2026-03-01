@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Gift for Ishu Bby 💍</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        @media print {
+
+            /* Hide everything except the certificate card */
+            body,
+            html {
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            .background-overlay,
+            .floating-hearts,
+            #intro-overlay,
+            header,
+            .gift-section,
+            .timeline-section,
+            .love-scroll,
+            .btn-secondary,
+            audio,
+            #bgMusic {
+                display: none !important;
+            }
+
+            main {
+                display: block !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                opacity: 1 !important;
+            }
+
+            .certificate-section {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .certificate-card {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+                transform: scale(0.9);
+                transform-origin: top center;
+                background: #fffcf0 !important;
+                /* Force background color for certificate */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+    <!-- Library to convert HTML to Image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="background-overlay"></div>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <!-- Intro Overlay -->
+    <div id="intro-overlay" class="overlay active">
+        <div class="glass-card">
+            <div class="lock-icon">🔒</div>
+            <h1>Our Special Day</h1>
+            <p>Today is March 1st, 2026. A day when our souls became one.</p>
+            <p>Ishu Bby, I have something special for you.</p>
+            <button class="btn-primary" onclick="unlockGift()">Unlock the Marriage Gift 💖</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        <header>
+            <h1 class="glow-text">Happy Unofficial Marriage, Ishu!</h1>
+            <p class="subtitle">1st March 2026 • Forever To Go</p>
+        </header>
+
+        <section class="gift-section">
+            <div class="gift-container">
+                <div class="gift-box-wrapper" onclick="openGift()">
+                    <img src="gift-box.png" alt="Gift Box" class="gift-box-img" id="gift-img">
+                    <div class="ribbon-sparkle"></div>
+                </div>
+                <p id="gift-hint">Tap the box to open your gift!</p>
+            </div>
+
+            <!-- The Revealed Secret -->
+            <div id="revealed-gift" class="hidden">
+                <div class="reveal-content">
+                    <div class="ring-3d">💍</div>
+                    <h2>The Promise of Forever</h2>
+                    <p>"Across every kilometer, across every screen, my heart belongs to you. This virtual ring is just
+                        a symbol until I can put a real one on your finger."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Journey Timeline -->
+        <section class="timeline-section">
+            <h2 class="glow-text" style="font-size: 3rem;">Our Eternal Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">August 2, 2024</span>
+                        <h3>The First Spark ✨</h3>
+                        <p>The magical day we first met. Everything changed from this moment on!</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">January 26, 2025</span>
+                        <h3>Love Blossomed ❤️</h3>
+                        <p>The day we officially stepped into our first beautiful relationship.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">February 14, 2025</span>
+                        <h3>Stronger Than Ever 🌹</h3>
+                        <p>A Valentine's Day we'll never forget—coming back together forever.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item current">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">March 1, 2026</span>
+                        <h3>Married (Again!) 💍</h3>
+                        <p>Our 2nd marriage celebration! Distances can't stop us. I love you so much, Ishu Bby!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="glow-text">Treasured Memories</h2>
+            <p>A glimpse into our beautiful moments together.</p>
+            <div class="gallery-grid">
+                <!-- Memory 1 (PDF) -->
+                <div class="gallery-item" onclick="window.open('doc1.pdf')">
+                    <img src="thumb1.png" alt="Milestone 1">
+                    <div class="gallery-overlay"><span>Partnership Agreement 📜</span></div>
+                </div>
+
+                <!-- Memory 2 (DOCX) -->
+                <div class="gallery-item" onclick="window.open('doc2.docx')">
+                    <img src="thumb2.png" alt="Ishu's Love Letter">
+                    <div class="gallery-overlay"><span>Ishu's Love Letter 🖋️</span></div>
+                </div>
+
+                <!-- Memory 3 (Image) -->
+                <div class="gallery-item" onclick="window.open('marriage_cert.png')">
+                    <img src="marriage_cert.png" alt="Marriage Bond">
+                    <div class="gallery-overlay"><span>Eternal Bond 💍</span></div>
+                </div>
+
+                <!-- Memory 4 (PDF) -->
+                <div class="gallery-item" onclick="window.open('doc3.pdf')">
+                    <img src="thumb3.png" alt="10-Year Challenge">
+                    <div class="gallery-overlay"><span>10-Year Challenge ✨</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marriage Certificate Section -->
+        <section class="certificate-section">
+            <div class="certificate-card" id="certificate">
+                <div class="cert-border">
+                    <div class="cert-header">
+                        <img src="https://img.icons8.com/color/96/000000/hearts.png" alt="Seal" class="cert-logo">
+                        <h1>Certificate of Infinite Love</h1>
+                    </div>
+                    <div class="cert-body">
+                        <p>This document lovingly confirms that on this day,</p>
+                        <h2 class="date">1st March 2026</h2>
+                        <div class="names">
+                            <span class="name">Pratik Thorat</span>
+                            <span class="ampersand">&</span>
+                            <span class="name">Ishika Tyagi</span>
+                        </div>
+                        <p>Have officially entered into a bond of</p>
+                        <p class="bond-type">Unofficial LDR Marriage</p>
+                        <p class="footer-msg">"Distance is temporary, but our love is eternal."</p>
+                    </div>
+                    <div class="cert-footer">
+                        <div class="signature">
+                            <p>Signed with Love</p>
+                            <span>Pratik</span>
+                        </div>
+                        <div class="seal">
+                            <span>OFFICIAL</span>
+                        </div>
+                        <div class="signature">
+                            <p>Accepted with a Kiss</p>
+                            <span>Ishu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="exportCert()">Download Certificate 📸</button>
+        </section>
+
+        <!-- Timeline / Message Scroll -->
+        <section class="love-scroll">
+            <div class="scroll-container">
+                <h2>Our Vows</h2>
+                <div class="vow-item">✨ I promise to always be your safe place.</div>
+                <div class="vow-item">✨ I promise to love you even through the signal drops.</div>
+                <div class="vow-item">✨ I promise to make March 1st the best day ever, every year.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="wedding-song.m4a" type="audio/mp4">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
